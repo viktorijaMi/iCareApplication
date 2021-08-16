@@ -1,0 +1,27 @@
+<div class="form-block mx-lg-5" style="background: rgba(46, 47, 50, 0.51); width: 488px; margin-left: 500px!important;">
+    <div class="text-center mb-5">
+        <h3 class="text-uppercase" style="font-family: 'PT Sans';color: white; padding-top: 10px;">
+            Најава
+        </h3>
+    </div>
+    <div th:if="${error}">
+        <div class="alert alert-danger" role="alert" th:text="${errorMessage}"></div>
+    </div>
+    <div class="container">
+        <form action="/login" method="POST">
+            <div class="form-group first">
+                <label for="username" style="color: #D8697F">Корисничко име: </label>
+                <input class="form-control" style="width: 30%" id="username" type="text" name="username"/>
+            </div>
+            <div class="form-group last mb-3">
+                <label for="password" style="color:#D8697F;">Лозинка: </label>
+                <input class="form-control" style="width: 30%" id="password" type="password" name="password">
+                <br>
+                <a href="/најава"><small style="color: #FFFDFD">Заборавена лозинка?</small></a>
+            </div>
+            <div class="mb-5">
+                <button class="btn" style="background-color: #DAABB9; color: #FFFFFF; justify-content: center;  height: 40px; margin-left: 180px;" type="submit">Најави се</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,153 @@
+<div class="wrapper">
+    <div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 7.5rem; display: flex; height: 500px">
+        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+            <li class="nav-item">
+                <a href="/home" class="nav-link py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-home fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/calming-sounds" class="nav-link py-3 border-bottom" title="Calming Sounds" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-music fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/breathing-exercises" class="nav-link py-3 border-bottom" title="Breathing exercises" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <img src="https://image.flaticon.com/icons/png/512/188/188427.png" width="39" height="42"/>
+                </a>
+            </li>
+            <li>
+                <a href="/mental-health-diary" class="nav-link active py-3 border-bottom" title="Mental health diary" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-book fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link py-3 border-bottom" title="Boenje slika" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-paint-brush fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link py-3 border-bottom" title="Forum" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-comments fa-3x"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="container" style="margin-top: -500px; background-color: rgba(51, 51, 51, 0.5); color: white; border-radius: 3rem;">
+        <a href="/mental-health-diary" style="margin-left: -300px; margin-top: 5px; position: absolute;"><i class="fa fa-arrow-circle-left fa-3x" style="color: #2E2F32; position: absolute;"></i></a>
+        <div style="border-top: 60px solid pink;
+                    border-left: 60px solid transparent;
+                    border-right: 60px solid transparent;
+                    width: 70%;
+                    position: relative; margin-left: 200px;">
+            <h1 style="margin-top: -55px; font-family: 'News Gothic MT'; color: #FFFDFD; text-align: center;text-decoration-style: wavy;">Дневникот на <th:block th:text="${username}"></th:block></h1>
+        </div>
+        <form method="POST" action="/mental-health-diary/add-record">
+            <div class="form-row" style="margin-left: 10px;">
+                <div class="form-group col-md-4">
+                    <div class="row">
+                        <label for="date">Датум: </label>
+                        <input style="color: #D8697F" id="date" type="date" name="date"/>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                            <label style="width: 302px!important; max-width: none!important;">Опиши го на кратко твојот ден, чувствата и нивните предизвикувачи</label>
+                            <textarea style="color: #D8697F" rows = "5" cols = "40" name = "day_description">
+                            Опишете го вашиот ден овде..
+                            </textarea><br>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="form-check" for="feeling">Како се чувствуваш?</label>
+                    <div th:each="f : ${feelings}">
+                        <input class="form-check-input" id="feeling" name="feeling" type="radio" th:value="${f.name}">
+                        <span style="margin-left: 20px;" class="form-check-label" th:text="${f.name}"></span>
+                        <br/>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="form-check" for="activity">Што правеше денес?</label>
+                    <div th:each="a : ${activities}">
+                        <input class="form-check-input" id="activity" name="activity" type="radio" th:value="${a.name}">
+                        <span style="margin-left: 20px;" class="form-check-label" th:text="${a.name}"></span>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row" style="margin-left: 450px; color: pink; margin-top: -15px;">
+                <h3><b>Обележи го твојот ден</b></h3>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="water">Вода (во литри)</label>
+                    <input class="form-control" id="water" name="water" type="number"/>
+                    <br/>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="meals">Оброк (1, 2, 3)</label>
+                    <input class="form-control"  id="meals" name="meals" type="number"/>
+                    <br/>
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="fresh_air">Свеж воздух (Колку прошетки направивте денес?, пр. 1,2,3)</label>
+                    <input class="form-control" id="fresh_air" name="fresh_air" type="number"/>
+                    <br/>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label>Витамини</label>
+                    <div>
+                        <input class="form-check-input" name="vitamins" value="Да" type="radio">
+                        <span style="margin-left: 20px;" class="form-check-label">Да</span>
+                        <br/>
+                    </div>
+                    <div>
+                        <input class="form-check-input" name="vitamins" value="Не" type="radio">
+                        <span style="margin-left: 20px;" class="form-check-label">Не</span>
+                        <br/>
+                    </div>
+                    <br/>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Медитација</label>
+                    <div>
+                        <input class="form-check-input" type="radio" value="Да" for="meditation" name="meditation">
+                        <span style="margin-left: 20px;"class="form-check-label">Да</span>
+                    </div>
+                    <div>
+                        <input class="form-check-input" type="radio" value="Не" for="meditation" name="meditation">
+                        <span style="margin-left: 20px;" class="form-check-label">Не</span>
+                    </div>
+                    <br/>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Јога</label>
+                    <div>
+                        <input class="form-check-input" type="radio" value="Да" for="yoga" name="yoga">
+                        <span style="margin-left: 20px;" class="form-check-label">Да</span>
+                    </div>
+                    <div>
+                        <input class="form-check-input" type="radio" value="Не" for="yoga" name="yoga">
+                        <span style="margin-left: 20px;" class="form-check-label">Не</span>
+                    </div>
+                    <br/>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Квалитетен сон</label>
+                    <div>
+                        <input class="form-check-input" type="radio" value="Да" for="good_sleep" name="good_sleep">
+                        <span style="margin-left: 20px;" class="form-check-label">Да</span>
+                    </div>
+                    <div>
+                        <input class="form-check-input" type="radio" value="Не" for="good_sleep" name="good_sleep">
+                        <span style="margin-left: 20px;" class="form-check-label">Не</span>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+            <div class="form-row">
+                <button class="btn" style="background-color: #DAABB9; color: #FFFFFF; justify-content: center;  height: 40px; margin-left: 525px;" type="submit">Запиши запис</button>
+            </div>
+        </form>
+    </div>
+</div>

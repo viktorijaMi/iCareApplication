@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+  <h3>Тест за регистрација</h3>
+  <form th:method="POST" action="/register/test">
+    <label>Како се чувствувате?</label>
+    <span th:each="f : ${feelings}">
+          <input for="start_feeling" name="start_feeling" type="radio" th:text="${f.name}" th:value="${f.name}">
+    </span>
+
+    <label>Дали се чувствувате често така?</label>
+    <input type="radio" th:text="Да" value="Да" for="frequent_feeling" name="frequent_feeling">
+    <input type="radio" th:text="Не" value="Не" for="frequent_feeling" name="frequent_feeling">
+
+    <label>Дали сте искусиле паничен напад?</label>
+    <input type="radio" th:text="Да" value="Да" for="panic_attack" name="panic_attack">
+    <input type="radio" th:text="Не" value="Не" for="panic_attack" name="panic_attack">
+
+    <label>За што сакате да ја користите апликацијата?</label>
+    <span th:each="w : ${why_the_app_list}">
+          <input for="why_the_app" name="why_the_app" type="radio" th:text="${w}" th:value="${w}">
+    </span>
+
+    <label>Дали моментално поминувате низ стресен период од животот?</label>
+    <input type="radio" th:text="Да" value="Да" for="stressed_period" name="stressed_period">
+    <input type="radio" th:text="Не" value="Не" for="stressed_period" name="stressed_period">
+
+    <button type="submit">Заврши тест</button>
+  </form>
+</body>
+</html>
