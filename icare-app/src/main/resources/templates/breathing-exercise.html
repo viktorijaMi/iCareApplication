@@ -1,0 +1,67 @@
+<div class="wrapper">
+    <div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 7.5rem; display: flex; height: 500px">
+        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+            <li class="nav-item">
+                <a href="/home" class="nav-link py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-home fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/calming-sounds" class="nav-link py-3 border-bottom" title="Calming Sounds" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-music fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/breathing-exercises" class="nav-link active py-3 border-bottom" title="Breathing exercises" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <img src="https://image.flaticon.com/icons/png/512/188/188427.png" width="39" height="42"/>
+                </a>
+            </li>
+            <li>
+                <a href="/mental-health-diary" class="nav-link py-3 border-bottom" title="Mental health diary" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-book fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link py-3 border-bottom" title="Boenje slika" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-paint-brush fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link py-3 border-bottom" title="Forum" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-comments fa-3x"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="container" style="margin-top: -510px;">
+        <div style="border-top: 60px solid pink;
+                    border-left: 60px solid transparent;
+                    border-right: 60px solid transparent;
+                    width: 70%;
+                    position: relative; margin-left: 200px;">
+            <h1 style="margin-top: -55px; font-family: 'News Gothic MT'; color: #FFFDFD; text-align: center;text-decoration-style: wavy;">Застани, земи воздух и издиши се!</h1>
+        </div>
+        </hr>
+        <div  class="row">
+            <div class="col-sm-7" th:each="b : ${breathingExercises}" style="margin-bottom: 20px;">
+                <div class="card" style="width: 50rem; height: 18rem; background-color: #333333; color: white">
+                    <h4 class="card-header" style="background-color: white; color: black;">Ниво <th:block th:text="${b.level}"></th:block></h4>
+                    <div class="card-body" style="background-color: #48a1af; color: white;">
+                        <h5 class="card-title" th:text="${b.description}"></h5>
+                    </div>
+                    <div class="card-footer" style="color: white; height: 10rem; margin-top: 10px;">
+                        <p class="card-text col-sm-5">Времетраење: <th:block th:text="${b.duration}"></th:block></p>
+                        <p class="col-sm-5">Sвездички: <th:block th:text="${b.stars}"></th:block></p>
+                        <form method="POST" th:action="@{'/breathing-exercises/{id}' (id=${b.id})}">
+                            <button class="col-sm-2" style="background-color: white; color: #D8697F" type="submit"><i class="fa fa-arrow-circle-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6" style="position: absolute; margin-left: 600px; margin-top: 50px;">
+                <img style="border: outset; border-color: #333333;" src="https://images.squarespace-cdn.com/content/v1/5b8645f7266c07b084eb29c7/1570208020992-TRZCAX5P0A53CG0LS5AO/Box+breathing.gif" width="550" height="500"/>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,31 @@
+<header xmlns:th="http://www.thymeleaf.org">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container" style="
+    margin-left: 0px;
+    margin-right: 0px;">
+      <div class="navbar navbar-dark bg-dark" style="background: #333;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px;
+    display: block;">
+        <div class="row">
+          <div class="col-md-2" style="position: absolute; margin-left: 50px; padding-right: 500px;">
+            <div th:if="${#request.getSession().getAttribute('user') != null}">
+              <a href="/home"><img style="padding-bottom: 10px;" width="100" height="100" src="../static/images/logo01.png" th:src="@{images/logo01.png}" alt="Image"></a>
+            </div>
+            <div th:if="${#request.getSession().getAttribute('user') == null}">
+              <a href="/"><img style="padding-bottom: 10px;" width="100" height="100" src="../static/images/logo01.png" th:src="@{images/logo01.png}" alt="Image"></a>
+            </div>
+          </div>
+          <div class="col-md-4" style="position: absolute; margin-left: 600px;">
+            <a href="/help"><i class="fa fa-question-circle fa-4x fa-align-right" style="color: #D8697F;"></i></a>
+          </div>
+          <div class="col-md-4" th:if="${#request.getSession().getAttribute('user') != null}" style="position: absolute; margin-left: 700px; margin-top: 10px;">
+            <form method="post" action="/logout">
+              <button type="submit" class="btn btn-light">Одјави се</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

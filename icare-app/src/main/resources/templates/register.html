@@ -1,0 +1,53 @@
+<div class="form" style="background: rgba(46, 47, 50, 0.51); width: 700px; height: 400px; margin-left: 400px;">
+    <div class="text-center mb-lg-5">
+      <h3 class="text-uppercase" style="font-family: 'PT Sans';color: white; padding-top: 10px;">
+        Регистрација
+      </h3>
+    </div>
+    <div th:if="error==true">
+      <div class="alert alert-danger" role="alert" th:text="${errorMessage}"></div>
+    </div>
+    <form method="POST" action="/register" style="margin-left: 100px;">
+      <div class="form-row">
+        <div class="form-group col-md-5">
+          <label for="name" style="color: #D8697F">Име: </label>
+          <input class="form-control" style="width: 80%" id="name" type="text" name="name"/>
+        </div>
+        <div class="form-group col-md-5">
+          <label for="surname" style="color: #D8697F">Презиме: </label>
+          <input class="form-control" style="width: 80%" id="surname" type="text" name="surname"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label class="form-check" for="surname" style="color: #D8697F; padding-left: 0px;">Пол:</label>
+          <input class="form-check-input" style="width: 80%" type="radio" value="Машки" for="gender" name="gender"/>
+          <span class="form-check-label" style="color: #FFFDFD"> Машки </span>
+          <br/>
+          <input class="form-check-input" style="width: 80%" type="radio" value="Женски" for="gender" name="gender"/>
+          <span class="form-check-label" style="color: #FFFDFD"> Женски </span>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="surname" style="color: #D8697F; margin-left: 50px;">Датум на раѓање: </label>
+          <input class="form-control" style="width: 80%; margin-left: 50px;" id="date" type="date" for="date_of_birth" name="date_of_birth" value="2021-08-10"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="username" style="color: #D8697F">Корисничко име: </label>
+          <input class="form-control" style="width: 150%" id="username" type="text" name="username"/>
+        </div>
+        <div class="form-group col-md-2" style="margin-left: 50px;">
+          <label for="password" style="color:#D8697F; margin-top: 20px;">Лозинка: </label>
+          <input class="form-control" style="width: 150%;" id="password" type="password" name="password">
+        </div>
+        <div class="form-group col-md-2" style="margin-left: 50px;">
+          <label for="confirmPassword" style="color:#D8697F">Потврди лозинка: </label>
+          <input class="form-control" style="width: 150%;" id="confirmPassword" type="password" name="confirmPassword">
+        </div>
+      </div>
+      <div class="form-row">
+        <button class="btn" style="background-color: #DAABB9; color: #FFFFFF; justify-content: center;  height: 40px; margin-left: 180px; margin-top: 20px;" type="submit">Продолжи понатаму</button>
+      </div>
+    </form>
+</div>

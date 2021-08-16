@@ -1,0 +1,48 @@
+<div class="wrapper">
+    <div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 7.5rem; display: flex; height: 500px">
+        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+            <li class="nav-item">
+                <a href="/home" class="nav-link py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-home fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/calming-sounds" class="nav-link active py-3 border-bottom" title="Calming Sounds" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-music fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/breathing-exercises" class="nav-link py-3 border-bottom" title="Breathing exercises" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <img src="https://image.flaticon.com/icons/png/512/188/188427.png" width="39" height="42"/>
+                </a>
+            </li>
+            <li>
+                <a href="/mental-health-diary" class="nav-link py-3 border-bottom" title="Mental health diary" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-book fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link py-3 border-bottom" title="Boenje slika" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-paint-brush fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link py-3 border-bottom" title="Forum" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-comments fa-3x"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="container" style="margin-top: -500px; text-align: center">
+        <a href="/calming-sounds" style="margin-left: -500px; margin-top: 5px; position: absolute;"><i class="fa fa-arrow-circle-left fa-3x" style="color: #2E2F32; position: absolute;"></i></a>
+        <div style="border-top: 60px solid pink;
+                    border-left: 60px solid transparent;
+                    border-right: 60px solid transparent;
+                    width: 70%;
+                    position: relative;
+                    margin-left: 150px;">
+            <h1 style="margin-top: -55px;font-family: 'News Gothic MT'; color: #FFFDFD; text-align: center;text-decoration-style: wavy;" th:text="${audio.title}"></h1>
+        </div>
+        <iframe width="800" height="500" frameborder="0px" th:src="${audio.youtube_url}"></iframe>
+    </div>
+</div>

@@ -1,0 +1,136 @@
+<div class="wrapper">
+    <div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 7.5rem; display: flex; height: 500px">
+        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+            <li class="nav-item">
+                <a href="/home" class="nav-link py-3 border-bottom" aria-current="page" title="Home"
+                   data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-home fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/calming-sounds" class="nav-link py-3 border-bottom" title="Calming Sounds"
+                   data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-music fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/breathing-exercises" class="nav-link py-3 border-bottom" title="Breathing exercises"
+                   data-bs-toggle="tooltip" data-bs-placement="right">
+                    <img src="https://image.flaticon.com/icons/png/512/188/188427.png" width="39" height="42"/>
+                </a>
+            </li>
+            <li>
+                <a href="/mental-health-diary" class="nav-link active py-3 border-bottom" title="Mental health diary"
+                   data-bs-toggle="tooltip" data-bs-placement="right">
+                    <i class="fa fa-book fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link py-3 border-bottom" title="Boenje slika" data-bs-toggle="tooltip"
+                   data-bs-placement="right">
+                    <i class="fa fa-paint-brush fa-3x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link py-3 border-bottom" title="Forum" data-bs-toggle="tooltip"
+                   data-bs-placement="right">
+                    <i class="fa fa-comments fa-3x"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="container" style="margin-top: -500px;">
+        <div style="border-top: 60px solid pink;
+                    border-left: 60px solid transparent;
+                    border-right: 60px solid transparent;
+                    width: 70%;
+                    position: relative; margin-left: 200px;">
+            <h1 style="margin-top: -55px; font-family: 'News Gothic MT'; color: #FFFDFD; text-align: center;text-decoration-style: wavy;">
+                Дневникот на
+                <th:block th:text="${username}"></th:block>
+            </h1>
+        </div>
+        <div style="border-top: 30px solid #333333;
+                    border-left: 30px solid #333333;
+                    border-right: 30px solid white;
+                    border-bottom: 30px solid #333333;
+                    width: 30%;
+                    position: relative; margin-left: 400px;">
+            <a style="margin-top: -15px; margin-left: 80px; position: absolute;" href="/mental-health-diary/add-record"
+               class="btn btn-light">Додади запис</a>
+        </div>
+        <div class="row" th:if="${diaryRecordList.size() != 0}">
+            <div th:each="d : ${diaryRecordList}" class="card" style="margin-top: 20px; margin-left: 15px; margin-right: 15px; border-radius: 5rem; background-color: #48a1af;
+    color: white; ">
+                <h3 class="card-header" style="background-color: white; color: #333333; border-radius: 3rem;"><b>Датум: </b>
+                    <th:block th:text="${d.dateTime}"></th:block>
+                </h3>
+                <div class="card-body">
+                    <div th:if="${d.feeling.ordinal == 0}">
+                        <h2 class="card-title"><b>Расположение: </b>
+                            <th:block th:text="${d.feeling}"></th:block>
+                            <i class="fa fa-laugh"></i></h2>
+                    </div>
+                    <div th:if="${d.feeling.ordinal == 1}">
+                        <h2 class="card-title"><b>Расположение: </b>
+                            <th:block th:text="${d.feeling}"></th:block>
+                            <i class="fa fa-smile"></i></h2>
+                    </div>
+                    <div th:if="${d.feeling.ordinal == 2}">
+                        <h2 class="card-title"><b>Расположение: </b>
+                            <th:block th:text="${d.feeling}"></th:block>
+                            <i class="fa fa-tired"></i>
+                        </h2>
+                    </div>
+                    <div th:if="${d.feeling.ordinal == 3}">
+                        <h2 class="card-title"><b>Расположение: </b>
+                            <th:block th:text="${d.feeling}"></th:block>
+                            <i class="fa fa-angry"></i></h2>
+                    </div>
+                    <div th:if="${d.feeling.ordinal == 4}">
+                        <h2 class="card-title"><b>Расположение: </b>
+                            <th:block th:text="${d.feeling}"></th:block>
+                            <i class="fa fa-meh"></i></h2>
+                    </div>
+                    <div th:if="${d.feeling.ordinal == 5}">
+                        <h2 class="card-title"><b>Расположение: </b>
+                            <th:block th:text="${d.feeling}"></th:block>
+                            <i class="fa fa-sad-cry"></i></h2>
+                    </div>
+                    <p class="card-text"><b>Опис на денот: </b>
+                        <th:block th:text="${d.day_description}"></th:block>
+                    </p>
+                    <p class="card-text"><b>Активност: </b>
+                        <th:block th:text="${d.activity}"></th:block>
+                    </p>
+                    <p class="card-text"><b>Вода: </b>
+                        <th:block th:text="${d.water}"></th:block>
+                        L
+                    </p>
+                    <p class="card-text"><b>Оброци: </b>
+                        <th:block th:text="${d.meals}"></th:block>
+                    </p>
+                    <p class="card-text"><b>Број на прошетки: </b>
+                        <th:block th:text="${d.fresh_air}"></th:block>
+                    </p>
+                    <p class="card-text"><b>Витамини: </b>
+                        <th:block th:if="${d.vitamins == true}" th:text="Да"></th:block>
+                        <th:block th:if="${d.vitamins == false}" th:text="Не"></th:block>
+                    </p>
+                    <p class="card-text"><b>Јога: </b>
+                        <th:block th:if="${d.yoga == true}" th:text="Да"></th:block>
+                        <th:block th:if="${d.yoga == false}" th:text="Не"></th:block>
+                    </p>
+                    <p class="card-text"><b>Медитација: </b>
+                        <th:block th:if="${d.meditation == true}" th:text="Да"></th:block>
+                        <th:block th:if="${d.meditation == false}" th:text="Не"></th:block>
+                    </p>
+                    <p class="card-text"><b>Квалитетен сон: </b>
+                        <th:block th:if="${d.good_sleep == true}" th:text="Да"></th:block>
+                        <th:block th:if="${d.good_sleep == false}" th:text="Не"></th:block>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
