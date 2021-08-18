@@ -8,18 +8,18 @@
     margin: 0px 0px 0px;
     display: block;">
         <div class="row">
-          <div class="col-md-2" style="position: absolute; margin-left: 50px; padding-right: 500px;">
+          <div class="col-md-2" style="margin-left: 30px; padding-right: 800px;">
             <div th:if="${#request.getSession().getAttribute('user') != null}">
-              <a href="/home"><img style="padding-bottom: 10px;" width="100" height="100" src="../static/images/logo01.png" th:src="@{images/logo01.png}" alt="Image"></a>
+              <a href="/home"><img width="100" height="100" th:src="@{/images/logo01.png}" alt="Image"></a>
             </div>
             <div th:if="${#request.getSession().getAttribute('user') == null}">
-              <a href="/"><img style="padding-bottom: 10px;" width="100" height="100" src="../static/images/logo01.png" th:src="@{images/logo01.png}" alt="Image"></a>
+              <a href="/"><img width="100" height="100" th:src="@{/images/logo01.png}" alt="Image"></a>
             </div>
           </div>
-          <div class="col-md-4" style="position: absolute; margin-left: 600px;">
+          <div class="col-md-4" style="position: absolute; margin-left: 1100px; padding-top: 25px;">
             <a href="/help"><i class="fa fa-question-circle fa-4x fa-align-right" style="color: #D8697F;"></i></a>
           </div>
-          <div class="col-md-4" th:if="${#request.getSession().getAttribute('user') != null}" style="position: absolute; margin-left: 700px; margin-top: 10px;">
+          <div class="col-md-4" th:if="${#request.getSession().getAttribute('user') != null}" style="position: absolute; margin-left: 1180px; padding-top: 35px;">
             <form method="post" action="/logout">
               <button type="submit" class="btn btn-light">Одјави се</button>
             </form>

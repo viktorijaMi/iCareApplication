@@ -24,7 +24,7 @@ public class LoginFilter implements Filter {
 
         String path = request.getServletPath();
 
-        if (!"/login".equals(path) && user==null && !"/".equals(path) && !"/help".equals(path) && !"/register".equals(path) && !"/register/test".equals(path)) {
+        if (!"/login".equals(path) && !"/images/logo01.png".equals(path) && user==null && !"/".equals(path) && !"/help".equals(path) && !"/register".equals(path) && !"/register/test".equals(path)) {
             response.sendRedirect("/login");
         } else {
             filterChain.doFilter(servletRequest,servletResponse);

@@ -1,10 +1,10 @@
-<div class="form" style="background: rgba(46, 47, 50, 0.51); width: 700px; height: 400px; margin-left: 400px;">
+<div class="form" style="background: rgba(46, 47, 50, 0.51); width: 700px; height: 500px; margin-left: 400px;">
     <div class="text-center mb-lg-5">
       <h3 class="text-uppercase" style="font-family: 'PT Sans';color: white; padding-top: 10px;">
         Регистрација
       </h3>
     </div>
-    <div th:if="error==true">
+    <div th:if="${error}">
       <div class="alert alert-danger" role="alert" th:text="${errorMessage}"></div>
     </div>
     <form method="POST" action="/register" style="margin-left: 100px;">
@@ -47,7 +47,7 @@
         </div>
       </div>
       <div class="form-row">
-        <button class="btn" style="background-color: #DAABB9; color: #FFFFFF; justify-content: center;  height: 40px; margin-left: 180px; margin-top: 20px;" type="submit">Продолжи понатаму</button>
+        <button class="btn" style="background-color: #DAABB9; color: #FFFFFF; justify-content: center;  height: 40px; margin-left: 180px; margin-top: 40px;" type="submit">Продолжи понатаму</button>
       </div>
     </form>
 </div>

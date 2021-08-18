@@ -44,11 +44,12 @@
     </hr>
     <div class="row" style="margin-left: 250px;">
       <div class="col-sm-6" th:each="a : ${audios1}">
-        <div class="card" style="width: 20rem; height: 25rem; background-color: #333333; color: white">
+        <div class="card" style="width: 20rem; height: 28rem; background-color: #333333; color: white">
           <img class="card-img-top" th:src="${a.image_url}"/>
           <div class="card-body" style="margin-top: -10px;">
             <h5 class="card-title" th:text="${a.title}"></h5>
             <p class="card-text" style="font-size: 10px;" th:text="${a.description}"></p>
+            <p class="card-text" style="font-size: 10px;">Времетраење: <th:block th:text="${a.duration}"></th:block> min</p>
             <div class="row">
               <p style="font-size: 10px; margin-left: 15px;">Број на ѕвездички: </p><small th:text="${a.stars}"></small>
               <button style="margin-left: 10px; background-color: white; color: #D8697F"><i class="fa fa-heart"></i></button>
@@ -64,11 +65,12 @@
     <br>
     <div class="row" style="margin-left: 250px;">
       <div class="col-sm-6" th:each="a : ${audios2}">
-        <div class="card" style="width: 20rem; height: 25rem; background-color: #333333; color: white">
+        <div class="card" style="width: 20rem; height: 28rem; background-color: #333333; color: white">
           <img class="card-img-top" th:src="${a.image_url}"/>
           <div class="card-body" style="margin-top: -10px;">
             <h5 class="card-title" th:text="${a.title}"></h5>
             <p class="card-text" style="font-size: 10px;" th:text="${a.description}"></p>
+            <p class="card-text" style="font-size: 10px;">Времетраење: <th:block th:text="${a.duration}"></th:block> min</p>
             <div class="row">
               <p style="font-size: 10px; margin-left: 15px;">Број на ѕвездички: </p><small th:text="${a.stars}"></small>
               <button style="margin-left: 10px; background-color: white; color: #D8697F"><i class="fa fa-heart"></i></button>

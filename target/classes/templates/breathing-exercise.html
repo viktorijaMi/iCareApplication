@@ -50,7 +50,7 @@
                         <h5 class="card-title" th:text="${b.description}"></h5>
                     </div>
                     <div class="card-footer" style="color: white; height: 10rem; margin-top: 10px;">
-                        <p class="card-text col-sm-5">Времетраење: <th:block th:text="${b.duration}"></th:block></p>
+                        <p class="card-text col-sm-5">Времетраење: <th:block th:text="${b.duration}"></th:block> min</p>
                         <p class="col-sm-5">Sвездички: <th:block th:text="${b.stars}"></th:block></p>
                         <form method="POST" th:action="@{'/breathing-exercises/{id}' (id=${b.id})}">
                             <button class="col-sm-2" style="background-color: white; color: #D8697F" type="submit"><i class="fa fa-arrow-circle-right"></i></button>

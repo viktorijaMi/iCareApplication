@@ -1,35 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Test</title>
-</head>
-<body>
-  <h3>Тест за регистрација</h3>
-  <form th:method="POST" action="/register/test">
-    <label>Како се чувствувате?</label>
-    <span th:each="f : ${feelings}">
-          <input for="start_feeling" name="start_feeling" type="radio" th:text="${f.name}" th:value="${f.name}">
-    </span>
-
-    <label>Дали се чувствувате често така?</label>
-    <input type="radio" th:text="Да" value="Да" for="frequent_feeling" name="frequent_feeling">
-    <input type="radio" th:text="Не" value="Не" for="frequent_feeling" name="frequent_feeling">
-
-    <label>Дали сте искусиле паничен напад?</label>
-    <input type="radio" th:text="Да" value="Да" for="panic_attack" name="panic_attack">
-    <input type="radio" th:text="Не" value="Не" for="panic_attack" name="panic_attack">
-
-    <label>За што сакате да ја користите апликацијата?</label>
-    <span th:each="w : ${why_the_app_list}">
-          <input for="why_the_app" name="why_the_app" type="radio" th:text="${w}" th:value="${w}">
-    </span>
-
-    <label>Дали моментално поминувате низ стресен период од животот?</label>
-    <input type="radio" th:text="Да" value="Да" for="stressed_period" name="stressed_period">
-    <input type="radio" th:text="Не" value="Не" for="stressed_period" name="stressed_period">
-
-    <button type="submit">Заврши тест</button>
-  </form>
-</body>
-</html>
+<div class="wrapper" xmlns="http://www.w3.org/1999/html">
+    <div style="border-top: 60px solid pink;
+                    border-left: 60px solid transparent;
+                    border-right: 60px solid transparent;
+                    width: 70%;
+                    position: relative; margin-left: 200px;">
+      <h1 style="margin-top: -55px; font-family: 'News Gothic MT'; color: #FFFDFD; text-align: center;text-decoration-style: wavy;">
+        Тест за регистрација
+      </h1>
+  <div class="container" style="margin-top: 40px; background-color: rgba(51, 51, 51, 0.5); color: white; border-radius: 3rem; width: 800px; height: 400px;">
+    <form th:method="POST" action="/register/test">
+      <div class="form-row" style="margin-left: 10px;">
+        <div class="form-group col-md-4" style="margin-top: 10px;">
+            <label class="form-check" for="start_feeling" style="font-size: 20px;">Како се чувствувате?</label>
+            <div th:each="f : ${feelings}">
+              <input class="form-check-input" style="color: #D8697F" id="start_feeling" name="start_feeling" type="radio" th:value="${f.name}">
+              <span style="margin-left: 20px; font-size: 15px; color: white" class="form-check-label" th:text="${f.name}"></span>
+              <br/>
+            </div>
+        </div>
+        <div class="form-group col-md-4" style="margin-top: 5px;">
+            <label class="form-check" style="font-size: 20px;">Дали се чувствувате често така?</label>
+            <div>
+              <input class="form-check-input" type="radio" value="Да" for="frequent_feeling" name="frequent_feeling">
+              <span class="form-check-label" style="margin-left: 20px; font-size: 15px; color: white" th:text="Да"></span>
+              <br/>
+              <input class="form-check-input" type="radio"  value="Не" for="frequent_feeling" name="frequent_feeling">
+              <span class="form-check-label" style="margin-left: 20px; font-size: 15px; color: white" th:text="Не"></span>
+            </div>
+        </div>
+        <div class="form-group col-md-4" style="margin-top: 10px;">
+            <label class="form-check" style="font-size: 20px;">Дали сте искусиле паничен напад?</label>
+            <input class="form-check-input" type="radio" value="Да" for="panic_attack" name="panic_attack">
+            <span class="form-check-label" th:text="Да" style="margin-left: 20px; font-size: 15px; color: white;"></span>
+            <br/>
+            <input type="radio" value="Не" for="panic_attack" name="panic_attack">
+            <span class="form-check-label" th:text="Не" style="margin-left: 20px; font-size: 15px; color: white"></span>
+        </div>
+        <div class="form-group col-md-5" style="margin-top: 10px;">
+            <label class="form-check" style="font-size: 20px;">За што сакате да ја користите апликацијата?</label>
+            <div th:each="w : ${why_the_app_list}">
+              <input class="form-check-input" for="why_the_app" name="why_the_app" type="radio" th:value="${w}">
+              <span class="form-check-label" th:text="${w}" style="margin-left: 20px; font-size: 15px; color: white;"></span>
+              <br/>
+            </div>
+        </div>
+        <div class="form-group col-md-5" style="margin-top: 10px;">
+            <label class="form-check" style="font-size: 20px;">Дали моментално поминувате низ стресен период од животот?</label>
+            <input class="form-check-input" type="radio" value="Да" for="stressed_period" name="stressed_period">
+            <span class="form-check-label" th:text="Да" style="margin-left: 20px; font-size: 15px; color: white;"></span>
+            </br>
+            <input class="form-check-input" type="radio" value="Не" for="stressed_period" name="stressed_period">
+            <span class="form-check-label" th:text="Не" style="margin-left: 20px; font-size: 15px; color: white;"></span>
+        </div>
+        <div class="form-row col-md-5">
+          <button class="btn" style="background-color: #DAABB9; color: #FFFFFF; justify-content: center;  height: 40px; margin-left: 300px; font-size: 20px; margin-top: 20px;" type="submit">Заврши тест</button>
+        </div>
+      </div>
+    </form>
+  </div>
+    </div>
+</div>

@@ -70,8 +70,8 @@ public class RegisterController {
                        @RequestParam String why_the_app,
                        @RequestParam String stressed_period,
                        HttpServletRequest request) {
-        String username = (String) request.getSession().getAttribute("username");
-        this.userService.test(username, start_feeling, frequent_feeling, panic_attack, why_the_app, stressed_period);
+        User user = (User) request.getSession().getAttribute("user");
+        this.userService.test(user.getUsername(), start_feeling, frequent_feeling, panic_attack, why_the_app, stressed_period);
         return "redirect:/login";
     }
 }
