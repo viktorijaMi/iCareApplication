@@ -48,6 +48,7 @@ public class RegisterController {
                            HttpServletRequest request) {
         try{
             User user = this.userService.register(name, surname, gender, date_of_birth, username, password, confirmPassword);
+            request.getSession().setAttribute("user", user);
             List<Feelings> feelings = Arrays.asList(Feelings.values());
             List<String> why_the_app_list = new ArrayList<>();
             why_the_app_list.add("Да го подобрам мојот сон");
